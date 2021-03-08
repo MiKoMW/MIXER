@@ -9,7 +9,7 @@ TOKENIZER=$SCRIPTS/tokenizer/tokenizer.perl
 LC=$SCRIPTS/tokenizer/lowercase.perl
 CLEAN=$SCRIPTS/training/clean-corpus-n.perl
 
-URL="http://wit3.fbk.eu/archive/2014-01/texts/de/en/de-en.tgz"
+URL="https://github.com/MiKoMW/playfield/raw/main/de-en.tgz"
 GZ=de-en.tgz
 
 if [ ! -d "$SCRIPTS" ]; then
@@ -28,7 +28,7 @@ mkdir -p $orig $tmp $prep
 
 echo "Downloading data from ${URL}..."
 cd $orig
-http_proxy=fwdproxy:8080 https_proxy=fwdproxy:8080 wget "$URL"
+wget "$URL"
 
 if [ -f $GZ ]; then
     echo "Data successfully downloaded."
